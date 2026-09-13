@@ -1,0 +1,1667 @@
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="yourr-ikyy? HTML Study Book: belajar HTML dari nol dengan preview tag, atribut, table, forms, quiz dan progress.">
+<title>yourr-ikyy? — HTML Study Book</title>
+<style>
+:root{
+  --bg:#f8faff;
+  --surface:#ffffff;
+  --surface-2:#f6f8fc;
+  --ink:#202124;
+  --muted:#5f6368;
+  --line:#e3e7ef;
+  --blue:#4285f4;
+  --blue-soft:#e8f0fe;
+  --red:#ea4335;
+  --red-soft:#fde9e7;
+  --yellow:#fbbc04;
+  --yellow-soft:#fff4cc;
+  --green:#34a853;
+  --green-soft:#e4f6ea;
+  --purple:#8b5cf6;
+  --purple-soft:#efe9ff;
+  --pink:#ec4899;
+  --pink-soft:#fde7f3;
+  --orange:#f97316;
+  --orange-soft:#ffeadc;
+  --dark:#202124;
+  --dark-2:#2b2c2f;
+  --shadow:0 12px 35px rgba(60,64,67,.09);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 5% 8%,#e8f0fe 0,transparent 23%),
+    radial-gradient(circle at 93% 17%,#ffe7ef 0,transparent 20%),
+    radial-gradient(circle at 18% 92%,#e4f6ea 0,transparent 22%),
+    var(--bg);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.68;
+}
+body.modal-open{overflow:hidden}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+::selection{background:#cfe1ff}
+img{max-width:100%;display:block}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(227,231,239,.9);
+}
+.topbar-inner{
+  max-width:1240px;
+  margin:auto;
+  padding:11px 20px;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.logo{
+  text-decoration:none;
+  font-style:italic;
+  font-weight:950;
+  letter-spacing:-1.4px;
+  font-size:21px;
+  white-space:nowrap;
+}
+.logo .g-blue{color:var(--blue)}
+.logo .g-red{color:var(--red)}
+.top-nav{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  margin-left:auto;
+  align-items:center;
+}
+.top-nav a,.thankyou{
+  text-decoration:none;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:850;
+  color:var(--muted);
+}
+.top-nav a:hover{background:#f1f3f4;color:var(--ink)}
+.thankyou{
+  background:var(--green-soft);
+  color:#137333;
+  border:1px solid #c6ebd0;
+}
+
+.wrap{max-width:1240px;margin:auto;padding:26px 20px 70px}
+.hero{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:17px;
+}
+.hero-main,.hero-side,.bento-card{
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  border-radius:var(--radius);
+}
+.hero-main{
+  padding:40px;
+  background:
+    linear-gradient(135deg,#e8f0fe 0,#fff 46%,#fff5f4 100%);
+}
+.hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:12px;
+  font-weight:900;
+}
+.hero h1{
+  margin:18px 0 12px;
+  font-size:clamp(41px,7vw,78px);
+  line-height:.96;
+  letter-spacing:-3.6px;
+}
+.hero p{
+  color:#4b5563;
+  max-width:760px;
+  font-size:17px;
+}
+.name-chip{
+  display:inline-flex;
+  margin-top:10px;
+  padding:7px 10px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #dce3f1;
+  font-weight:850;
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.primary,.secondary{
+  display:inline-block;
+  text-decoration:none;
+  border:0;
+  border-radius:12px;
+  padding:11px 15px;
+  font-weight:900;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.primary{background:var(--blue);color:#fff;box-shadow:0 9px 20px rgba(66,133,244,.22)}
+.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.primary:hover,.secondary:hover{transform:translateY(-1px)}
+
+.hero-side{
+  padding:22px;
+  min-height:300px;
+  background:#202124;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.avatar-wrap{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.avatar-wrap img{
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.16);
+}
+.avatar-wrap strong{font-size:20px}
+.google-dots{
+  display:flex;
+  gap:6px;
+  margin-top:5px;
+}
+.google-dots i{width:9px;height:9px;border-radius:50%}
+.b-blue{background:#4285f4}.b-red{background:#ea4335}.b-yellow{background:#fbbc04}.b-green{background:#34a853}
+.browser{
+  margin-top:18px;
+  background:#fff;
+  color:var(--ink);
+  border-radius:16px;
+  overflow:hidden;
+}
+.browser-head{padding:10px 13px;border-bottom:1px solid #edf0f4;display:flex;gap:6px}
+.browser-dot{width:9px;height:9px;border-radius:50%}
+.browser-body{padding:17px;font-family:Consolas,monospace;font-size:12px}
+
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+  margin-top:18px;
+}
+.bento-card{
+  padding:23px;
+  min-width:0;
+  background:var(--surface);
+}
+.c12{grid-column:span 12}.c8{grid-column:span 8}.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}.c3{grid-column:span 3}
+.blue-card{background:var(--blue-soft)}
+.red-card{background:var(--red-soft)}
+.yellow-card{background:var(--yellow-soft)}
+.green-card{background:var(--green-soft)}
+.purple-card{background:var(--purple-soft)}
+.pink-card{background:var(--pink-soft)}
+.orange-card{background:var(--orange-soft)}
+
+.section{scroll-margin-top:86px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:15px}
+.section-head h2{font-size:30px;letter-spacing:-1px;margin:0}
+.section-head p{margin:2px 0 0;color:var(--muted)}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:950;color:var(--muted)}
+.note{
+  padding:14px 15px;
+  background:rgba(255,255,255,.78);
+  border:1px dashed #cbd3e2;
+  border-radius:14px;
+}
+.tip-blue{border-left:5px solid var(--blue)}
+.tip-yellow{border-left:5px solid var(--yellow)}
+.tip-green{border-left:5px solid var(--green)}
+.tip-red{border-left:5px solid var(--red)}
+.explain{
+  padding:17px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+}
+.explain h3{margin-top:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.codebox{
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--dark);
+  color:#eff2f7;
+  box-shadow:0 10px 24px rgba(32,33,36,.12);
+}
+.code-head{
+  padding:9px 13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--dark-2);
+  color:#c8ccd2;
+  font-size:12px;
+}
+.code-copy{
+  border:1px solid #ffffff20;
+  background:#ffffff10;
+  color:#fff;
+  border-radius:8px;
+  padding:5px 9px;
+  font-size:11px;
+  font-weight:800;
+}
+.codebox pre{
+  margin:0;
+  padding:17px;
+  overflow:auto;
+  white-space:pre;
+  font:13px/1.7 Consolas,monospace;
+}
+
+.tag-tools{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}
+.search{
+  flex:1 1 280px;
+  min-width:220px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:12px;
+  padding:11px 13px;
+  outline:none;
+}
+.search:focus{border-color:#a8bff7;box-shadow:0 0 0 4px #e8f0fe}
+.filter{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:10px;
+  padding:9px 11px;
+  font-weight:800;
+  color:#4b5563;
+}
+.filter.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+.tag-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+}
+.tag-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 8px 22px rgba(60,64,67,.06);
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  transition:transform .16s ease,box-shadow .16s ease;
+}
+.tag-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(60,64,67,.09)}
+.tag-top{display:flex;justify-content:space-between;align-items:center;gap:9px}
+.tag-name{font:950 16px Consolas,monospace;color:#1a73e8}
+.mini-pill{
+  padding:4px 8px;border-radius:999px;background:#f1f3f4;color:#5f6368;
+  font:800 11px Consolas,monospace;white-space:nowrap
+}
+.tag-desc{margin:0;color:var(--muted);font-size:13px;min-height:42px}
+.preview{
+  border:1px solid #e9edf3;
+  border-radius:12px;
+  background:#fafbff;
+  padding:12px;
+  min-height:84px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+.preview-left{justify-content:flex-start}
+.preview table{border-collapse:collapse;width:100%;font-size:12px}
+.preview th,.preview td{border:1px solid #dfe3eb;padding:5px}
+.preview ul,.preview ol{margin:4px auto;padding-left:24px}
+.preview h1,.preview h2,.preview h3,.preview h4,.preview h5,.preview h6,.preview p{margin:3px 0}
+.preview input,.preview select,.preview textarea{max-width:100%;padding:7px;border:1px solid #cfd5df;border-radius:7px}
+.preview button{border:0;background:#1a73e8;color:#fff;padding:7px 10px;border-radius:7px;font-weight:800}
+.mini-code{
+  background:#202124;color:#f1f3f4;border-radius:10px;padding:10px;
+  font:12px/1.55 Consolas,monospace;white-space:pre-wrap;overflow:auto;
+}
+.empty-state{
+  padding:35px 15px;
+  text-align:center;
+  color:var(--muted);
+  background:#fff;
+  border:1px dashed #cbd3e2;
+  border-radius:14px;
+}
+
+.attr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.attr-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}
+.attr-card code{color:#7c3aed;font-weight:950}
+.attr-card small{display:block;color:var(--muted);margin-top:5px}
+
+.table-scroll{overflow:auto}
+.study-table{width:100%;min-width:680px;border-collapse:collapse;background:#fff}
+.study-table th,.study-table td{padding:11px;border:1px solid var(--line);text-align:left}
+.study-table th{background:#f1f5f9}
+.study-table code{background:#f1f3f4;padding:2px 5px;border-radius:5px}
+caption{caption-side:top;padding:10px;font-weight:900}
+
+.diagram{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  align-items:center;
+  margin-top:14px;
+}
+.diagram div{
+  text-align:center;
+  padding:12px 8px;
+  border-radius:12px;
+  font:850 12px Consolas,monospace;
+}
+.d1{background:#e8f0fe}.d2{background:#fde9e7}.d3{background:#fff4cc}.d4{background:#e4f6ea}.d5{background:#efe9ff}
+.arrow{text-align:center;font-weight:950;color:#5f6368}
+
+.form-demo{
+  display:grid;
+  gap:9px;
+}
+.form-demo input,.form-demo select,.form-demo textarea{
+  width:100%;padding:10px;border:1px solid #cbd3df;border-radius:10px;background:#fff
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+
+.quiz-card{
+  background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:11px
+}
+.q-head{display:flex;gap:8px;align-items:flex-start}
+.q-number{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#e8f0fe;color:#185abc;font-weight:950;flex:none}
+.quiz-card label{display:block;padding:8px 10px;margin-top:4px;border-radius:10px;cursor:pointer}
+.quiz-card label:hover{background:#f8fafc}
+.quiz-card input{accent-color:var(--blue)}
+.answer{margin-top:6px;font-weight:850}
+.quiz-actions{display:flex;gap:9px;flex-wrap:wrap}
+.score{
+  display:none;
+  margin-top:13px;padding:15px;border-radius:14px;
+  background:#e4f6ea;border:1px solid #b7e2c2;font-weight:900
+}
+.progress-shell{height:10px;background:#e7ebf1;border-radius:999px;overflow:hidden;margin:12px 0 4px}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),#6ea0ff);transition:.3s}
+.progress-label{font-size:12px;color:var(--muted)}
+
+.motivation{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#e8f0fe,#fff4cc 48%,#e4f6ea);
+}
+.motivation:after{
+  content:"";
+  position:absolute;
+  width:190px;height:190px;border-radius:50%;
+  background:#fff6;right:-50px;top:-70px;
+}
+.motivation h2{font-size:38px;letter-spacing:-1.6px;margin:0 0 8px;position:relative;z-index:1}
+.motivation p{position:relative;z-index:1;max-width:820px}
+
+.footer{
+  margin-top:26px;
+  background:#202124;
+  color:#fff;
+  border-radius:25px;
+  padding:29px;
+  box-shadow:var(--shadow);
+}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.footer-logo{font-size:25px;font-style:italic;font-weight:950}
+.footer-links{display:flex;gap:8px;flex-wrap:wrap}
+.footer-links a{
+  text-decoration:none;
+  padding:9px 12px;
+  background:#ffffff10;
+  border:1px solid #ffffff18;
+  border-radius:10px;
+  font-weight:850;
+}
+.footer-links a:hover{background:#ffffff18}
+.footer-sub{color:#aeb4bd;margin-top:5px;font-size:13px}.easter-egg{margin-top:5px;color:#7f8794;font-size:10px;letter-spacing:.2px;opacity:.72}
+
+.top-btn{
+  position:fixed;right:18px;bottom:18px;
+  width:46px;height:46px;border:0;border-radius:50%;
+  background:#202124;color:#fff;box-shadow:0 12px 28px #0002;
+  display:none;z-index:80;
+}
+
+.modal{
+  position:fixed;inset:0;z-index:200;display:none;
+  place-items:center;background:rgba(32,33,36,.52);padding:16px
+}
+.modal.show{display:grid}
+.modal-card{
+  width:min(500px,100%);
+  background:#fff;
+  border-radius:24px;
+  border:1px solid var(--line);
+  box-shadow:0 25px 80px rgba(0,0,0,.22);
+  padding:27px;
+}
+.modal-colors{display:flex;gap:7px;margin-bottom:13px}
+.modal-colors i{width:16px;height:16px;border-radius:50%}
+.modal-card h2{font-size:30px;letter-spacing:-1.2px;margin:5px 0}
+.modal-card p{color:var(--muted)}
+.modal-card input{
+  width:100%;padding:13px;border:1px solid #cbd3df;border-radius:12px;outline:none;
+  font-size:16px
+}
+.modal-card input:focus{border-color:#8ab4f8;box-shadow:0 0 0 4px #e8f0fe}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:13px}
+
+
+/* ===== ACCURATE PREVIEW / PLAYGROUND ===== */
+.preview{
+  position:relative;
+  display:block;
+  padding:7px;
+  min-height:72px;
+  background:#f7f9fc;
+  border:1px solid #e9edf3;
+  border-radius:12px;
+  overflow:hidden;
+}
+.preview-frame{
+  width:100%;
+  height:72px;
+  min-height:50px;
+  border:1px solid #dfe4ec;
+  border-radius:10px;
+  background:#fff;
+  display:block;
+  transition:height .18s ease;
+}
+.tag-card.is-focused{outline:3px solid #d9e6ff;transform:translateY(-2px)}
+.playground{background:linear-gradient(135deg,#ffffff 0%,#f8fbff 55%,#fff7fb 100%)}
+.playground-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.playground textarea{
+  width:100%;min-height:300px;resize:vertical;
+  border:1px solid #cfd7e6;border-radius:14px;padding:14px;
+  background:#0f172a;color:#e2e8f0;font:13px/1.7 Consolas,monospace;outline:none;
+  tab-size:2;
+}
+.playground textarea:focus{box-shadow:0 0 0 4px #e8f0fe;border-color:#8ab4f8}
+.playground-output{width:100%;height:340px;border:1px solid #cfd7e6;border-radius:14px;background:#fff;display:block}
+.playground-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.playground-actions button{border:1px solid #cfd7e6;background:#fff;padding:8px 11px;border-radius:9px;font-weight:850}
+.playground-actions button:hover{background:#eef4ff;border-color:#a9c2f5}
+.example-chip{font-size:11px}
+.accuracy-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.native-source-box{margin-top:9px;border:1px solid #e1e7f0;border-radius:14px;overflow:hidden;background:#fff}.native-source-label{padding:8px 11px;background:#f8fafc;border-bottom:1px solid #e1e7f0;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:950;color:#64748b}.native-source-code{margin:0;min-height:90px;max-height:220px;overflow:auto;padding:12px 13px;background:#202124;color:#f1f3f4;font:12px/1.7 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.accuracy-item{background:#fff;border:1px solid #e1e7f0;border-radius:14px;padding:12px}
+.accuracy-item b{display:block;margin-bottom:4px}
+.accuracy-item small{color:#64748b}
+.deep-explain{
+  margin-top:1px;border:1px solid #e4e8f0;border-radius:12px;background:#fbfcff;overflow:hidden;
+}
+.deep-explain summary{cursor:pointer;list-style:none;padding:9px 11px;font-size:12px;font-weight:900;color:#334155}
+.deep-explain summary::-webkit-details-marker{display:none}
+.deep-explain summary::before{content:'＋';display:inline-grid;place-items:center;width:20px;height:20px;margin-right:7px;border-radius:6px;background:#eef4ff;color:#1a73e8}
+.deep-explain[open] summary::before{content:'−'}
+.deep-explain-content{padding:0 11px 11px;color:#5f6368;font-size:12px}
+.deep-explain-content b{color:#334155}
+.tag-card .preview-frame + .deep-explain{margin-top:0}
+.playground-tip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}
+.playground-tip .tip-box{background:#fff;border:1px solid #e1e7f0;border-radius:14px;padding:12px}
+.playground-tip .tip-box b{display:block;margin-bottom:3px}
+@media(max-width:800px){
+  .playground-grid{grid-template-columns:1fr}
+  .accuracy-list,.playground-tip{grid-template-columns:1fr}
+  .playground-output{height:300px}
+}
+
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr}
+  .tag-grid{grid-template-columns:repeat(2,1fr)}
+  .attr-grid{grid-template-columns:repeat(2,1fr)}
+  .c8,.c7,.c6,.c5,.c4,.c3{grid-column:span 12}
+}
+@media(max-width:700px){
+  .topbar-inner{padding:8px 10px;min-height:58px}
+  .top-nav{gap:2px;max-width:100vw}
+  .top-nav a{padding:8px 9px;font-size:11px}
+  .wrap{padding:12px 9px 42px}
+  .hero-main{padding:22px 18px}
+  .hero h1{font-size:44px;letter-spacing:-2.3px}
+  .hero p{font-size:14px}
+  .bento{gap:10px}
+  .bento-card{padding:14px;border-radius:18px}
+  .tag-grid{grid-template-columns:1fr}
+  .tag-card{padding:14px}
+  .tag-desc{min-height:0}
+  .preview{padding:6px}
+  .preview-frame{min-height:56px}
+  .mini-code{font-size:11px}
+  .section-head h2{font-size:24px}
+  .codebox pre{font-size:12px;line-height:1.6}
+  .form-row{grid-template-columns:1fr}
+  .playground textarea{min-height:260px;font-size:12px}
+  .playground-output{height:300px}
+  .playground-actions button{min-height:42px}
+  .quiz-actions .primary,.quiz-actions .secondary{width:100%;min-height:44px}
+  .top-btn{right:12px;bottom:12px}
+}
+@media(max-width:430px){
+  .logo{font-size:18px}
+  .hero h1{font-size:40px}
+  .attr-grid{grid-template-columns:1fr}
+  .footer{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<div id="nameModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="nameTitle">
+  <div class="modal-card">
+    <div class="modal-colors"><i class="b-blue"></i><i class="b-red"></i><i class="b-yellow"></i><i class="b-green"></i></div>
+    <div class="eyebrow">yourr-ikyy? • HTML Study Book</div>
+    <h2 id="nameTitle">Hai! Siapa nama kamu? 👋</h2>
+    <p>Aku bakal pakai namamu saat menjelaskan materi dan memberi semangat ujian, biar belajarnya terasa lebih personal.</p>
+    <input id="nameInput" maxlength="30" autocomplete="name" placeholder="Masukkan nama kamu...">
+    <div class="modal-actions">
+      <button class="secondary" id="skipName">Lewati</button>
+      <button class="primary" id="saveName">Mulai belajar →</button>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#home">yourr-<span class="g-blue">i</span><span class="g-red">k</span><span class="g-yellow">y</span><span class="g-green">y</span>?</a>
+    <nav class="top-nav">
+      <a href="#basics">Basics</a>
+      <a href="#tags">Tags</a>
+      <a href="#attributes">Attributes</a>
+      <a href="#tables">Table</a>
+      <a href="#forms">Forms</a>
+      <a href="#quiz">Quiz</a>
+      <span class="thankyou">Thank you sudah membaca 💙</span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="home">
+
+<section class="hero">
+  <div class="hero-main">
+    <span class="hero-kicker"><span>●</span> HTML STUDY BOOK • PLAYGROUND</span>
+    <h1>Belajar HTML dari nol.</h1>
+    <p>Halaman ini dibuat supaya kamu tidak cuma hafal tag, tapi <b>paham kenapa tag itu dipakai, kapan dipakai, atributnya apa, dan hasilnya seperti apa.</b></p>
+    <div class="name-chip">Mode belajar: <span id="helloName" style="margin-left:6px;color:#1a73e8">Teman Belajar</span> ✨</div>
+    <div class="hero-actions">
+      <a class="primary" href="#basics">Mulai belajar →</a>
+      <button class="secondary" onclick="openNameModal()">Ganti nama</button>
+    </div>
+  </div>
+
+  <div class="hero-side">
+    <div class="avatar-wrap">
+      <img src="https://avatars.githubusercontent.com/u/269651521?v=4" alt="Avatar contoh">
+      <div><strong>HTML Mode: ON</strong><div class="google-dots"><i class="b-blue"></i><i class="b-red"></i><i class="b-yellow"></i><i class="b-green"></i></div></div>
+    </div>
+    <div>
+      <div class="browser">
+        <div class="browser-head"><i class="browser-dot b-red"></i><i class="browser-dot b-yellow"></i><i class="browser-dot b-green"></i></div>
+        <div class="browser-body">&lt;<span style="color:#1a73e8">h1</span>&gt;Hello, <span style="color:#34a853">HTML!</span>&lt;/<span style="color:#1a73e8">h1</span>&gt;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bento">
+
+<section id="basics" class="bento-card c8 blue-card section">
+  <div class="section-head"><div><div class="eyebrow">Chapter 01</div><h2>🧱 HTML itu sebenarnya apa?</h2></div></div>
+  <div class="explain">
+    <p><b>HTML</b> adalah singkatan dari <b>HyperText Markup Language</b>. Gampangnya, HTML adalah bahasa markup yang dipakai untuk memberi tahu browser, “ini judul”, “ini paragraf”, “ini gambar”, “ini tabel”, dan seterusnya.</p>
+    <p>HTML <b>bukan</b> bahasa untuk mengatur warna, layout, atau animasi. HTML mendefinisikan <b>struktur dan makna (semantik) konten</b>, sedangkan CSS mengatur presentasi dan JavaScript biasanya menangani perilaku dinamis. Karena itu halaman web biasanya punya HTML untuk struktur, CSS untuk tampilan, dan JavaScript untuk perilaku/interaksi.</p>
+  </div>
+  <div class="diagram">
+    <div class="d1">HTML<br>Struktur</div><div class="arrow">→</div><div class="d3">CSS<br>Tampilan</div><div class="arrow">→</div><div class="d4">JS<br>Interaksi</div>
+  </div>
+</section>
+
+<section class="bento-card c4 yellow-card">
+  <div class="eyebrow">Kunci hafalan</div>
+  <h3>🎯 Bayangkan website sebagai rumah</h3>
+  <p><b>HTML</b> = rangka rumah.</p>
+  <p><b>CSS</b> = cat, furniture, dekorasi.</p>
+  <p><b>JavaScript</b> = pintu otomatis, lampu, tombol yang bekerja.</p>
+  <div class="note tip-yellow">Jadi saat soal bertanya “apa fungsi HTML?”, jawabannya berhubungan dengan <b>struktur/markup konten halaman web.</b></div>
+</section>
+
+<section class="bento-card c12 section">
+  <div class="section-head"><div><div class="eyebrow">Chapter 02</div><h2>🏗️ Struktur HTML paling dasar</h2><p>Pelajari bagian-bagiannya, jangan sekadar menyalin.</p></div></div>
+  <div class="two-col">
+    <div class="codebox">
+      <div class="code-head"><span>index.html</span><button class="code-copy" onclick="copyCode(this)">Copy</button></div>
+      <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Halaman Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Halo!&lt;/h1&gt;
+  &lt;p&gt;Ini isi halaman.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+    <div class="explain">
+      <h3>🔎 Dibaca dari atas ke bawah</h3>
+      <p><b>1. &lt;!DOCTYPE html&gt;</b> memberi tahu browser bahwa dokumen menggunakan HTML. Di HTML modern, ini adalah deklarasi HTML5.</p>
+      <p><b>2. &lt;html&gt;</b> adalah elemen paling luar/root dari dokumen HTML.</p>
+      <p><b>3. &lt;head&gt;</b> berisi informasi tentang dokumen, misalnya title, metadata, dan resource tertentu.</p>
+      <p><b>4. &lt;body&gt;</b> berisi konten utama yang tampil di halaman.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tags" class="bento-card c12 section">
+  <div class="section-head">
+    <div><div class="eyebrow">Chapter 03</div><h2>🏷️ Tag HTML + Preview langsung</h2><p>Setiap kartu punya penjelasan sederhana, contoh kode, dan hasil visual.</p></div>
+  </div>
+  <div class="note tip-blue" style="margin-bottom:14px"><b>Tag itu apa?</b> Tag adalah penanda yang memberi tahu browser tentang suatu elemen. Contohnya <code>&lt;p&gt;</code> menandai paragraf. Banyak elemen punya tag pembuka dan penutup, misalnya <code>&lt;p&gt;teks&lt;/p&gt;</code>. Beberapa elemen adalah <b>void elements</b>, jadi tidak punya tag penutup, misalnya <code>&lt;img&gt;</code> dan <code>&lt;br&gt;</code>.</div>
+
+  <div class="tag-tools">
+    <input id="tagSearch" class="search" placeholder="Cari tag... misalnya table, image, paragraph, form">
+    <button class="filter active" data-filter="all">Semua</button>
+    <button class="filter" data-filter="text">Text</button>
+    <button class="filter" data-filter="media">Media</button>
+    <button class="filter" data-filter="table">Table</button>
+    <button class="filter" data-filter="form">Form</button>
+    <button class="filter" data-filter="semantic">Semantic</button>
+  </div>
+
+  <div id="tagGrid" class="tag-grid">
+
+    <article class="tag-card" data-key="heading h1 h2 h3 h4 h5 h6 text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;h1&gt; – &lt;h6&gt;</span><span class="mini-pill">heading</span></div>
+      <p class="tag-desc">Dipakai untuk judul. h1 adalah level heading utama, sedangkan h6 lebih rendah tingkatnya.</p>
+      <div class="preview preview-left"><div><h1>H1 Judul</h1><h3>H3 Subjudul</h3><h6>H6 kecil</h6></div></div>
+      <div class="mini-code">&lt;h1&gt;Judul utama&lt;/h1&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="paragraph p text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;p&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">Membuat paragraf. Biasanya dipakai untuk kalimat atau blok teks biasa.</p>
+      <div class="preview preview-left"><p>Ini adalah paragraf HTML.</p></div>
+      <div class="mini-code">&lt;p&gt;Ini adalah paragraf.&lt;/p&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="br break line text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;br&gt;</span><span class="mini-pill">void</span></div>
+      <p class="tag-desc">Memaksa teks pindah ke baris berikutnya tanpa membuat paragraf baru.</p>
+      <div class="preview preview-left">Baris satu<br>Baris dua</div>
+      <div class="mini-code">Baris satu&lt;br&gt;Baris dua</div>
+    </article>
+
+    <article class="tag-card" data-key="hr horizontal rule line text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;hr&gt;</span><span class="mini-pill">void</span></div>
+      <p class="tag-desc">Membuat pemisah/topical break di antara bagian konten.</p>
+      <div class="preview preview-left"><div style="width:100%">Bagian atas<hr>Bagian bawah</div></div>
+      <div class="mini-code">&lt;hr&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="strong bold important text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;strong&gt;</span><span class="mini-pill">emphasis</span></div>
+      <p class="tag-desc">Menandai bahwa suatu teks punya tingkat kepentingan yang lebih kuat.</p>
+      <div class="preview preview-left"><strong>Teks penting</strong></div>
+      <div class="mini-code">&lt;strong&gt;Penting&lt;/strong&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="em italic emphasis text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;em&gt;</span><span class="mini-pill">emphasis</span></div>
+      <p class="tag-desc">Memberi penekanan pada sebuah kata atau bagian kalimat.</p>
+      <div class="preview preview-left"><em>Teks ditekankan</em></div>
+      <div class="mini-code">&lt;em&gt;Penekanan&lt;/em&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="mark highlight text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;mark&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">Menyorot teks agar terlihat seperti diberi stabilo.</p>
+      <div class="preview preview-left"><mark>Bagian yang disorot</mark></div>
+      <div class="mini-code">&lt;mark&gt;Highlight&lt;/mark&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="small text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;small&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">Membuat teks lebih kecil secara relatif.</p>
+      <div class="preview preview-left"><small>Catatan kecil</small></div>
+      <div class="mini-code">&lt;small&gt;Catatan&lt;/small&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="del ins sub sup text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;del&gt; / &lt;ins&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">del menandai teks yang dihapus, ins menandai teks yang ditambahkan.</p>
+      <div class="preview preview-left"><del>lama</del> → <ins>baru</ins></div>
+      <div class="mini-code">&lt;del&gt;Lama&lt;/del&gt;
+&lt;ins&gt;Baru&lt;/ins&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="sub superscript sup sub chemical math text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;sub&gt; / &lt;sup&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">sub untuk subscript, sup untuk superscript.</p>
+      <div class="preview">H<sub>2</sub>O &nbsp; x<sup>2</sup></div>
+      <div class="mini-code">H&lt;sub&gt;2&lt;/sub&gt;O
+x&lt;sup&gt;2&lt;/sup&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="a anchor link hyperlink href text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;a&gt;</span><span class="mini-pill">link</span></div>
+      <p class="tag-desc">Membuat hyperlink. Atribut yang paling sering digunakan adalah href untuk menentukan tujuan.</p>
+      <div class="preview"><a href="#home">Klik ke Home</a></div>
+      <div class="mini-code">&lt;a href="#home"&gt;Home&lt;/a&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="img image gambar src alt media" data-cat="media">
+      <div class="tag-top"><span class="tag-name">&lt;img&gt;</span><span class="mini-pill">void</span></div>
+      <p class="tag-desc">Menampilkan gambar. src menunjuk sumber gambar, sedangkan alt menjelaskan gambar.</p>
+      <div class="preview"><img src="https://avatars.githubusercontent.com/u/269651521?v=4" alt="Avatar contoh GitHub" style="width:72px;height:72px;border-radius:14px"></div>
+      <div class="mini-code">&lt;img src="foto.jpg" alt="Foto profil"&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="ul unordered list bullet" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;ul&gt;</span><span class="mini-pill">list</span></div>
+      <p class="tag-desc">Membuat daftar yang biasanya tampil dengan bullet.</p>
+      <div class="preview preview-left"><ul><li>HTML</li><li>CSS</li><li>JS</li></ul></div>
+      <div class="mini-code">&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+&lt;/ul&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="ol ordered list number" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;ol&gt;</span><span class="mini-pill">list</span></div>
+      <p class="tag-desc">Membuat daftar berurutan, biasanya bernomor.</p>
+      <div class="preview preview-left"><ol><li>Belajar</li><li>Latihan</li><li>Ujian</li></ol></div>
+      <div class="mini-code">&lt;ol&gt;
+  &lt;li&gt;Langkah 1&lt;/li&gt;
+&lt;/ol&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="li list item" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;li&gt;</span><span class="mini-pill">list</span></div>
+      <p class="tag-desc">Satu item di dalam ul, ol, atau konteks list tertentu.</p>
+      <div class="preview preview-left"><ul><li>Satu item</li></ul></div>
+      <div class="mini-code">&lt;li&gt;Satu item&lt;/li&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="table tabel data table" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;table&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Wadah utama untuk data yang memang cocok disajikan dalam bentuk baris dan kolom.</p>
+      <div class="preview"><table><caption>Contoh data</caption><thead><tr><th scope="col">Nama</th><th scope="col">Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;thead&gt;...&lt;/thead&gt;
+  &lt;tbody&gt;...&lt;/tbody&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="tr table row baris table" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;tr&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Table Row. Satu elemen tr mewakili satu baris tabel.</p>
+      <div class="preview"><table><tbody><tr><td>A</td><td>B</td><td>C</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="th table header heading table" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;th&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Table Header. Digunakan untuk sel kepala/judul pada tabel.</p>
+      <div class="preview"><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nama&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="td table data cell table" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;td&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Table Data. Digunakan untuk sel data biasa.</p>
+      <div class="preview"><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alya&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="thead table header group" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;thead&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Mengelompokkan bagian kepala tabel agar strukturnya lebih jelas.</p>
+      <div class="preview"><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nama&lt;/th&gt;
+      &lt;th&gt;Nilai&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="tbody table body group" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;tbody&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Mengelompokkan baris yang menjadi isi utama tabel.</p>
+      <div class="preview"><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr><tr><td>Bima</td><td>88</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alya&lt;/td&gt;
+      &lt;td&gt;95&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="tfoot table footer group" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;tfoot&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Mengelompokkan bagian footer/ringkasan tabel.</p>
+      <div class="preview"><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Alya</td><td>95</td></tr></tbody><tfoot><tr><th scope="row">Rata-rata</th><td>95</td></tr></tfoot></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Rata-rata&lt;/th&gt;
+      &lt;td&gt;95&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="caption table title" data-cat="table">
+      <div class="tag-top"><span class="tag-name">&lt;caption&gt;</span><span class="mini-pill">table</span></div>
+      <p class="tag-desc">Memberi judul atau keterangan untuk sebuah tabel.</p>
+      <div class="preview"><table><caption>Nilai Ujian</caption><tbody><tr><td>95</td></tr></tbody></table></div>
+      <div class="mini-code">&lt;table&gt;
+  &lt;caption&gt;Nilai Ujian&lt;/caption&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;95&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="form forms form" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;form&gt;</span><span class="mini-pill">form</span></div>
+      <p class="tag-desc">Wadah untuk kontrol input yang datanya ingin dikumpulkan/dikirim.</p>
+      <div class="preview preview-left"><form style="width:100%" onsubmit="return false"><input placeholder="Nama" style="width:100%;margin-bottom:6px"><button type="button">Kirim</button></form></div>
+      <div class="mini-code">&lt;form action="/submit" method="post"&gt;
+  ...
+&lt;/form&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="input text email password checkbox radio date number form" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;input&gt;</span><span class="mini-pill">void</span></div>
+      <p class="tag-desc">Membuat berbagai macam kontrol input, tergantung atribut type.</p>
+      <div class="preview"><input placeholder="Masukkan nama" style="width:100%"></div>
+      <div class="mini-code">&lt;input type="text" name="nama"&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="label form label for" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;label&gt;</span><span class="mini-pill">form</span></div>
+      <p class="tag-desc">Memberi label/keterangan pada sebuah kontrol form. Atribut for biasanya dihubungkan dengan id kontrol.</p>
+      <div class="preview"><label for="tagLabelInput">Nama:</label> <input id="tagLabelInput" style="width:110px"></div>
+      <div class="mini-code">&lt;label for="nama"&gt;Nama&lt;/label&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="button form button interactive" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;button&gt;</span><span class="mini-pill">interactive</span></div>
+      <p class="tag-desc">Membuat tombol. type dapat digunakan untuk menentukan perilaku tombol di dalam form.</p>
+      <div class="preview"><button type="button" onclick="alert('Ini preview button HTML!')">Klik aku</button></div>
+      <div class="mini-code">&lt;button type="button"&gt;Klik&lt;/button&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="textarea text area form" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;textarea&gt;</span><span class="mini-pill">form</span></div>
+      <p class="tag-desc">Tempat input untuk teks yang bisa terdiri dari banyak baris.</p>
+      <div class="preview"><textarea rows="2" placeholder="Tulis..." style="width:100%"></textarea></div>
+      <div class="mini-code">&lt;textarea rows="4"&gt;&lt;/textarea&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="select option dropdown form" data-cat="form">
+      <div class="tag-top"><span class="tag-name">&lt;select&gt; + &lt;option&gt;</span><span class="mini-pill">form</span></div>
+      <p class="tag-desc">select membuat dropdown, option membuat pilihan di dalamnya.</p>
+      <div class="preview"><select><option>HTML</option><option>CSS</option><option>JS</option></select></div>
+      <div class="mini-code">&lt;select&gt;
+  &lt;option&gt;HTML&lt;/option&gt;
+&lt;/select&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="header semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;header&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Menandai bagian header untuk sebuah halaman atau section.</p>
+      <div class="preview"><header style="width:100%;padding:10px;border-radius:9px;background:#e8f0fe;font-weight:850">Website Header</header></div>
+      <div class="mini-code">&lt;header&gt;...&lt;/header&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="nav navigation semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;nav&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Menandai area navigasi yang berisi kumpulan link navigasi.</p>
+      <div class="preview"><nav><a href="#home">Home</a> · <a href="#tags">Tags</a></nav></div>
+      <div class="mini-code">&lt;nav&gt;
+  &lt;a href="#home"&gt;Home&lt;/a&gt;
+&lt;/nav&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="main semantic content" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;main&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Menandai konten utama halaman, yang menjadi fokus utama dokumen.</p>
+      <div class="preview"><main style="width:100%;padding:10px;border-radius:9px;background:#e4f6ea">Main content</main></div>
+      <div class="mini-code">&lt;main&gt;Konten utama&lt;/main&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="section semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;section&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Mengelompokkan konten yang punya satu topik atau tema.</p>
+      <div class="preview"><section style="width:100%;padding:10px;border-radius:9px;background:#efe9ff">Satu Section</section></div>
+      <div class="mini-code">&lt;section&gt;...&lt;/section&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="article semantic post content" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;article&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Untuk konten yang relatif mandiri, misalnya artikel atau posting.</p>
+      <div class="preview preview-left"><article><b>Article</b><br>Konten mandiri</article></div>
+      <div class="mini-code">&lt;article&gt;Artikel&lt;/article&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="aside semantic sidebar related" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;aside&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Untuk konten samping atau informasi yang berkaitan dengan konten utama.</p>
+      <div class="preview"><aside style="width:100%;padding:10px;background:#fde7f3;border-radius:9px">Related info</aside></div>
+      <div class="mini-code">&lt;aside&gt;Info terkait&lt;/aside&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="footer semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;footer&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Menandai bagian footer dari halaman atau section.</p>
+      <div class="preview"><footer style="width:100%;padding:10px;background:#202124;color:#fff;border-radius:9px">Footer</footer></div>
+      <div class="mini-code">&lt;footer&gt;...&lt;/footer&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="details summary interactive" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;details&gt; + &lt;summary&gt;</span><span class="mini-pill">interactive</span></div>
+      <p class="tag-desc">Membuat bagian yang bisa dibuka dan ditutup. Coba klik preview-nya.</p>
+      <div class="preview preview-left"><details><summary>Klik untuk buka</summary><p>Isi tersembunyi.</p></details></div>
+      <div class="mini-code">&lt;details&gt;
+  &lt;summary&gt;Buka&lt;/summary&gt;
+  Isi
+&lt;/details&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="code pre programming text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;code&gt; + &lt;pre&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">code menandai potongan kode, sedangkan pre mempertahankan whitespace dan line break.</p>
+      <div class="preview preview-left"><pre style="margin:0"><code>let x = 10;</code>
+  x + 5</pre></div>
+      <div class="mini-code">&lt;pre&gt;&lt;code&gt;let x=10;&lt;/code&gt;&lt;/pre&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="abbr abbreviation semantic text" data-cat="text">
+      <div class="tag-top"><span class="tag-name">&lt;abbr&gt;</span><span class="mini-pill">text</span></div>
+      <p class="tag-desc">Menandai singkatan. title bisa memberi bentuk lengkapnya sebagai informasi tambahan.</p>
+      <div class="preview"><abbr title="HyperText Markup Language">HTML</abbr></div>
+      <div class="mini-code">&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="time date semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;time&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">Menandai tanggal atau waktu dengan makna yang lebih jelas.</p>
+      <div class="preview"><time datetime="2026-09-13">13 September 2026</time></div>
+      <div class="mini-code">&lt;time datetime="2026-09-13"&gt;13 September 2026&lt;/time&gt;</div>
+    </article>
+
+    <article class="tag-card" data-key="figure figcaption image caption semantic" data-cat="semantic">
+      <div class="tag-top"><span class="tag-name">&lt;figure&gt; + &lt;figcaption&gt;</span><span class="mini-pill">semantic</span></div>
+      <p class="tag-desc">figure mengelompokkan konten ilustratif; figcaption memberi keterangannya.</p>
+      <div class="preview"><figure style="margin:0;text-align:center"><div style="font-size:30px">🌷</div><figcaption>Caption</figcaption></figure></div>
+      <div class="mini-code">&lt;figure&gt;
+  ...
+  &lt;figcaption&gt;Keterangan&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+    </article>
+
+  </div>
+  <div id="tagEmpty" class="empty-state" style="display:none;margin-top:14px">Tag yang kamu cari belum ketemu. Coba kata seperti <b>table</b>, <b>img</b>, <b>form</b>, atau <b>heading</b>.</div>
+</section>
+
+
+<section id="playground" class="bento-card c12 playground section">
+  <div class="section-head">
+    <div><div class="eyebrow">Interactive Lab</div><h2>🧪 Live HTML Playground</h2><p>Tulis HTML sendiri. Preview di sebelah kanan memakai dokumen terpisah, jadi CSS halaman belajar tidak mengubah hasil HTML-mu.</p></div>
+  </div>
+  <div class="note tip-blue"><b>Kenapa ini lebih akurat?</b> Hasil preview dijalankan di <code>iframe</code> terisolasi dengan style minimum, jadi browser bisa menerapkan default rendering HTML tanpa dipengaruhi kartu belajar ini.</div>
+  <div class="playground-grid" style="margin-top:14px">
+    <div>
+      <textarea id="playgroundCode" spellcheck="false"><h1>Halo, HTML!</h1>
+<p>Ini paragraf pertamaku.</p>
+<button type="button" onclick="alert('Tombol HTML bekerja!')">Klik aku</button></textarea>
+      <div class="playground-actions">
+        <button class="primary" type="button" onclick="runPlayground()">▶ Jalankan HTML</button>
+        <button type="button" onclick="resetPlayground()">↻ Reset</button>
+        <button class="example-chip" type="button" onclick="loadExample('table')">Contoh Table</button>
+        <button class="example-chip" type="button" onclick="loadExample('form')">Contoh Form</button>
+        <button class="example-chip" type="button" onclick="loadExample('semantic')">Contoh Semantic</button>
+      </div>
+    </div>
+    <div>
+      <iframe id="playgroundOutput" class="playground-output" title="Live HTML preview" sandbox="allow-scripts allow-forms"></iframe>
+      <div class="note" style="margin-top:9px"><b>Ingat:</b> CSS halaman ini tidak otomatis masuk ke preview. Jadi kalau kamu menulis <code>&lt;h1&gt;</code>, kamu akan melihat perilaku heading milik browser, bukan ukuran <code>h1</code> yang sudah didesain oleh website belajar ini.</div>
+       <div class="native-source-box"><div class="native-source-label">HTML yang sedang dirender</div><pre id="playgroundSource" class="native-source-code"></pre></div>
+    </div>
+  </div>
+  <div class="accuracy-list">
+    <div class="accuracy-item"><b>👀 Preview nyata</b><small>Elemen dirender oleh browser dalam frame terisolasi.</small></div>
+    <div class="accuracy-item"><b>🧠 Jelaskan, bukan hafal</b><small>Buka bagian “Pahami lebih dalam” untuk menghubungkan kode → hasil → fungsi.</small></div>
+    <div class="accuracy-item"><b>🎨 Tetap colorful</b><small>Warna dipakai untuk membedakan kategori dan status belajar, bukan memalsukan tampilan HTML.</small></div>
+  </div>
+</section>
+
+<section id="attributes" class="bento-card c7 purple-card section">
+  <div class="section-head"><div><div class="eyebrow">Chapter 04</div><h2>⚙️ Attributes</h2></div></div>
+  <div class="explain">
+    <p><b>Attribute/atribut</b> adalah informasi tambahan yang diletakkan pada tag pembuka. Atribut membantu memberi detail, misalnya ke mana link pergi, file gambar ada di mana, atau sebuah input harus berjenis apa.</p>
+    <div class="mini-code">&lt;a href="https://example.com" target="_blank"&gt;
+  Buka website
+&lt;/a&gt;</div>
+    <p>Pola sederhananya adalah <code>attribute="value"</code>. Tetapi ada juga <b>boolean attributes</b> seperti <code>required</code>, <code>disabled</code>, <code>checked</code>, dan <code>controls</code> yang bisa ditulis tanpa value.</p>
+  </div>
+</section>
+
+<section class="bento-card c5 pink-card">
+  <div class="eyebrow">Pahami bedanya</div>
+  <h3>🪪 id vs class</h3>
+  <p><code>id</code> biasanya dipakai sebagai identitas unik untuk satu elemen tertentu.</p>
+  <p><code>class</code> dipakai untuk mengelompokkan elemen yang punya gaya/perilaku sama dan dapat digunakan oleh banyak elemen.</p>
+  <div class="mini-code">&lt;h1 id="judul"&gt;Hello&lt;/h1&gt;
+&lt;p class="info"&gt;A&lt;/p&gt;
+&lt;p class="info"&gt;B&lt;/p&gt;</div>
+</section>
+
+<section class="bento-card c12 section">
+  <div class="section-head"><div><div class="eyebrow">Reference</div><h2>📚 Atribut yang sering keluar di soal</h2><p>Hafalkan fungsi sederhananya dulu.</p></div></div>
+  <div class="attr-grid">
+    <div class="attr-card"><code>href</code><small>Tujuan hyperlink.</small></div>
+    <div class="attr-card"><code>src</code><small>Sumber file/media.</small></div>
+    <div class="attr-card"><code>alt</code><small>Teks alternatif untuk gambar.</small></div>
+    <div class="attr-card"><code>id</code><small>Identitas elemen.</small></div>
+    <div class="attr-card"><code>class</code><small>Kelompok elemen.</small></div>
+    <div class="attr-card"><code>style</code><small>CSS inline.</small></div>
+    <div class="attr-card"><code>title</code><small>Informasi tambahan.</small></div>
+    <div class="attr-card"><code>target</code><small>Menentukan konteks pembukaan link tertentu.</small></div>
+    <div class="attr-card"><code>type</code><small>Menentukan jenis input/elemen tertentu.</small></div>
+    <div class="attr-card"><code>name</code><small>Nama kontrol form.</small></div>
+    <div class="attr-card"><code>value</code><small>Nilai kontrol.</small></div>
+    <div class="attr-card"><code>placeholder</code><small>Petunjuk sementara pada input.</small></div>
+    <div class="attr-card"><code>required</code><small>Field wajib diisi.</small></div>
+    <div class="attr-card"><code>disabled</code><small>Kontrol tidak aktif.</small></div>
+    <div class="attr-card"><code>checked</code><small>Checkbox/radio terpilih secara default.</small></div>
+    <div class="attr-card"><code>selected</code><small>Option dipilih secara default.</small></div>
+    <div class="attr-card"><code>for</code><small>Hubungan label dengan id kontrol.</small></div>
+    <div class="attr-card"><code>action</code><small>Tujuan pengiriman form.</small></div>
+    <div class="attr-card"><code>method</code><small>Metode pengiriman form.</small></div>
+    <div class="attr-card"><code>colspan</code><small>Gabungkan beberapa kolom.</small></div>
+    <div class="attr-card"><code>rowspan</code><small>Gabungkan beberapa baris.</small></div>
+    <div class="attr-card"><code>controls</code><small>Menampilkan kontrol media.</small></div>
+  </div>
+  <div class="note tip-green" style="margin-top:14px">✅ <b>Catatan akurasi:</b> istilah dan perilaku inti di halaman ini diselaraskan dengan HTML Living Standard dan referensi MDN, sementara tampilan kartu tetap dibuat colorful untuk belajar.</div>
+  <div class="footer-links" style="margin-top:10px">
+    <a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML Living Standard ↗</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements" target="_blank" rel="noopener">MDN HTML Elements ↗</a>
+  </div>
+</section>
+
+<section id="tables" class="bento-card c12 yellow-card section">
+  <div class="section-head"><div><div class="eyebrow">Chapter 05 • IMPORTANT</div><h2>📊 TABLE, bagian yang wajib paham ⭐</h2><p>Jangan cuma hafal nama tag. Pahami hubungan antar tag.</p></div></div>
+  <div class="note tip-yellow"><b>Rumus paling penting:</b> <code>&lt;table&gt;</code> = wadah tabel → <code>&lt;tr&gt;</code> = baris → <code>&lt;th&gt;</code> = header → <code>&lt;td&gt;</code> = data.</div>
+  <div class="two-col" style="margin-top:14px">
+    <div>
+      <div class="codebox">
+        <div class="code-head"><span>Table basic</span><button class="code-copy" onclick="copyCode(this)">Copy</button></div>
+        <pre>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nama&lt;/th&gt;
+    &lt;th&gt;Nilai&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alya&lt;/td&gt;
+    &lt;td&gt;95&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+      </div>
+    </div>
+    <div class="explain">
+      <h3>Kenapa ada tr, th, td?</h3>
+      <p>Bayangkan tabel sebagai grid. <b>tr</b> adalah satu garis horizontal/baris. Di dalam tr, kita menaruh sel. <b>th</b> dipakai untuk sel yang menjadi judul/header, sedangkan <b>td</b> dipakai untuk data biasa.</p>
+      <p><b>border="1"</b> sering muncul di contoh dasar sekolah, tetapi pada website modern border biasanya diatur menggunakan CSS.</p>
+    </div>
+  </div>
+  <div class="table-scroll" style="margin-top:15px">
+    <table class="study-table">
+      <caption>Preview table lengkap</caption>
+      <thead><tr><th>Nama</th><th>Kelas</th><th>Nilai</th></tr></thead>
+      <tbody><tr><td>Alya</td><td>XI IPA</td><td>95</td></tr><tr><td>Bima</td><td>XI IPA</td><td>88</td></tr></tbody>
+      <tfoot><tr><td colspan="2"><b>Rata-rata</b></td><td>91.5</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="three-col" style="margin-top:14px">
+    <div class="explain"><h3>thead</h3><p>Mengelompokkan bagian kepala tabel. Biasanya diisi baris header.</p></div>
+    <div class="explain"><h3>tbody</h3><p>Mengelompokkan isi utama tabel, yaitu data-data.</p></div>
+    <div class="explain"><h3>tfoot</h3><p>Mengelompokkan bagian bawah/ringkasan seperti total atau rata-rata.</p></div>
+  </div>
+</section>
+
+<section class="bento-card c6 orange-card">
+  <div class="eyebrow">Table trick</div>
+  <h3>↔️ colspan</h3>
+  <p><b>colspan</b> berarti sebuah sel membentang melewati beberapa kolom.</p>
+  <div class="mini-code">&lt;td colspan="2"&gt;Rata-rata&lt;/td&gt;</div>
+  <div class="preview"><table><thead><tr><th colspan="2">Gabung 2 kolom</th></tr></thead><tbody><tr><td>A</td><td>B</td></tr></tbody></table></div>
+</section>
+
+<section class="bento-card c6 green-card">
+  <div class="eyebrow">Table trick</div>
+  <h3>↕️ rowspan</h3>
+  <p><b>rowspan</b> berarti sebuah sel membentang melewati beberapa baris.</p>
+  <div class="mini-code">&lt;td rowspan="2"&gt;IPA&lt;/td&gt;</div>
+  <div class="preview"><table><thead><tr><th>Jurusan</th><th>Nama</th></tr></thead><tbody><tr><td rowspan="2">IPA</td><td>Alya</td></tr><tr><td>Bima</td></tr></tbody></table></div>
+</section>
+
+<section id="forms" class="bento-card c6 green-card section">
+  <div class="section-head"><div><div class="eyebrow">Chapter 06</div><h2>📝 Forms</h2></div></div>
+  <p>Form dipakai untuk membuat bagian halaman yang menerima input dari pengguna. <code>&lt;form&gt;</code> adalah wadahnya, sedangkan <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, dan tombol adalah contoh kontrolnya.</p>
+  <div class="form-demo">
+    <div class="form-row"><input id="demoFormName" placeholder="Nama"><input type="email" placeholder="Email"></div>
+    <select><option>Pilih kelas...</option><option>XI IPA</option><option>XI IPS</option></select>
+    <textarea rows="3" placeholder="Pesan"></textarea>
+    <button class="primary" type="button" onclick="alert('Preview form: tombol berhasil diklik!')">Kirim</button>
+  </div>
+</section>
+
+<section class="bento-card c6 pink-card">
+  <div class="section-head"><div><div class="eyebrow">Form reference</div><h2>🎛️ input type</h2></div></div>
+  <p>Nilai atribut <code>type</code> menentukan bentuk dan perilaku input.</p>
+  <div class="tag-tools">
+    <span class="mini-pill">text</span><span class="mini-pill">password</span><span class="mini-pill">email</span>
+    <span class="mini-pill">number</span><span class="mini-pill">date</span><span class="mini-pill">time</span>
+    <span class="mini-pill">radio</span><span class="mini-pill">checkbox</span><span class="mini-pill">file</span>
+    <span class="mini-pill">color</span><span class="mini-pill">range</span><span class="mini-pill">submit</span>
+    <span class="mini-pill">reset</span><span class="mini-pill">button</span>
+  </div>
+  <div class="note">Contoh: <code>&lt;input type="email"&gt;</code> membuat kontrol input yang ditujukan untuk alamat email.</div>
+</section>
+
+<section class="bento-card c4 blue-card">
+  <div class="eyebrow">Semantic HTML</div>
+  <h3>🧩 Header → Main → Footer</h3>
+  <p>Semantic tag membantu struktur dokumen lebih bermakna dan mudah dipahami manusia maupun tools.</p>
+  <div class="mini-code">&lt;header&gt;...&lt;/header&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</div>
+</section>
+
+<section class="bento-card c4 purple-card">
+  <div class="eyebrow">Comments</div>
+  <h3>💬 Komentar HTML</h3>
+  <p>Komentar tidak ditampilkan sebagai konten biasa di halaman.</p>
+  <div class="mini-code">&lt;!-- Ini komentar --&gt;</div>
+</section>
+
+<section class="bento-card c4 yellow-card">
+  <div class="eyebrow">Entities</div>
+  <h3>🔤 HTML Entities</h3>
+  <div class="table-scroll"><table class="study-table" style="min-width:0">
+    <tr><th>Kode</th><th>Hasil</th></tr>
+    <tr><td>&amp;lt;</td><td>&lt;</td></tr>
+    <tr><td>&amp;gt;</td><td>&gt;</td></tr>
+    <tr><td>&amp;amp;</td><td>&amp;</td></tr>
+    <tr><td>&amp;quot;</td><td>"</td></tr>
+  </table></div>
+</section>
+
+<section class="bento-card c12 section" id="quiz">
+  <div class="section-head">
+    <div><div class="eyebrow">Chapter 07 • Try Yourself</div><h2>🧠 Quiz besar: simulasi ulangan</h2><p>25 soal. Setelah selesai, kamu bisa lihat skor dan jawaban yang benar.</p></div>
+  </div>
+  <div class="note tip-blue">💡 Tips: baca pelan-pelan. Banyak soal sengaja dibuat mirip supaya kamu benar-benar tahu bedanya <b>tag, atribut, table, dan fungsi</b>.</div>
+  <div class="progress-shell"><div id="quizProgress" class="progress-bar"></div></div>
+  <div class="progress-label" id="quizProgressText">0/25 terjawab</div>
+  <div id="quizBox" style="margin-top:14px"></div>
+  <div class="quiz-actions">
+    <button class="primary" onclick="checkQuiz()">Cek Semua Jawaban</button>
+    <button class="secondary" onclick="resetQuiz()">Try Again ↻</button>
+  </div>
+  <div id="score" class="score"></div>
+</section>
+
+<section class="bento-card c12 motivation section" id="motivation">
+  <div class="eyebrow">Before the footer</div>
+  <h2>🔥 VAMOSS, Semangat ujiannya <span id="motivationName">teman belajar</span>!</h2>
+  <p>u tidak harus menghafal seluruh dunia HTML dalam satu malam. Kuasai pondasinya ae dulu: <b>tag → atribut → struktur → table → form</b>. Kalau satu soal masih salah, itu bukan tanda u gagal. Itu cuma petunjuk bagian mana yang perlu dibaca lagi.</p>
+  <p><b>coba ae sekali lagi, coba soal lagi, lalu masuk ujian dengan kepala yang tenang., FLOW STATEE!</b> u sudah melakukan bagian penting: mau belajar aee boy. 🚀</p>
+  <button class="primary" onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">Coba Quiz Lagi →</button>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-row">
+    <div>
+      <div class="footer-logo">yourr-ikyy?</div>
+      <div class="footer-sub">yo yo yooo thank u semua yang udah baca sampe test di akhirr!</div>
+      <div class="easter-egg">yes, i speedrun ini </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://codepen.io/eL-Fikyzz" target="_blank" rel="noopener">CodePen</a>
+      <a href="https://github.com/yourr-ikyy" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://dev.to/yourrikyy" target="_blank" rel="noopener">dev.to</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<button id="topBtn" class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+
+
+<script>
+const questions=[
+  {q:"HTML adalah singkatan dari...",o:["HyperText Markup Language","HighText Machine Language","Hyper Tool Markup Language","Home Text Markup Language"],a:0,e:"HTML adalah HyperText Markup Language."},
+  {q:"Tag yang menjadi root/elemen paling luar dokumen HTML adalah...",o:["<body>","<head>","<html>","<main>"],a:2,e:"<html> membungkus keseluruhan dokumen HTML."},
+  {q:"Bagian HTML yang berisi informasi seperti title dan metadata adalah...",o:["<body>","<head>","<footer>","<main>"],a:1,e:"<head> berisi metadata dan informasi dokumen."},
+  {q:"Tag yang digunakan untuk paragraf adalah...",o:["<para>","<p>","<paragraph>","<text>"],a:1,e:"<p> adalah tag paragraph."},
+  {q:"Tag untuk heading paling utama adalah...",o:["<h6>","<head>","<h1>","<title>"],a:2,e:"<h1> adalah level heading 1."},
+  {q:"Atribut yang menentukan tujuan sebuah hyperlink adalah...",o:["src","alt","href","target"],a:2,e:"href menentukan alamat/tujuan link."},
+  {q:"Atribut gambar yang menunjuk file atau sumber gambar adalah...",o:["href","src","alt","path"],a:1,e:"src adalah source/sumber resource pada img."},
+  {q:"Atribut alt pada img berfungsi untuk...",o:["Membuat gambar lebih besar","Memberi teks alternatif/deskripsi gambar","Membuka gambar di tab baru","Mengubah warna gambar"],a:1,e:"alt menyediakan alternative text."},
+  {q:"Tag untuk unordered list adalah...",o:["<ol>","<ul>","<li>","<list>"],a:1,e:"<ul> membuat unordered list."},
+  {q:"Tag untuk ordered list adalah...",o:["<ol>","<ul>","<order>","<li>"],a:0,e:"<ol> membuat ordered list."},
+  {q:"Tag untuk satu item dalam list adalah...",o:["<item>","<list>","<li>","<ul>"],a:2,e:"<li> adalah list item."},
+  {q:"Tag yang digunakan sebagai baris tabel adalah...",o:["<td>","<th>","<tr>","<row>"],a:2,e:"tr = table row."},
+  {q:"Tag untuk sel header pada table adalah...",o:["<header>","<thead>","<th>","<td>"],a:2,e:"th = table header cell."},
+  {q:"Tag untuk sel data biasa pada table adalah...",o:["<data>","<td>","<cell>","<tr>"],a:1,e:"td = table data cell."},
+  {q:"Fungsi colspan adalah...",o:["Menggabungkan beberapa kolom","Menggabungkan beberapa baris","Membuat heading","Membuat form"],a:0,e:"colspan membuat satu sel membentang ke beberapa kolom."},
+  {q:"Fungsi rowspan adalah...",o:["Menggabungkan beberapa kolom","Menggabungkan beberapa baris","Menghapus tabel","Mengubah border"],a:1,e:"rowspan membuat satu sel membentang ke beberapa baris."},
+  {q:"Tag untuk mengelompokkan bagian kepala tabel adalah...",o:["<thead>","<header>","<thgroup>","<top>"],a:0,e:"thead = table head group."},
+  {q:"Tag untuk mengelompokkan isi utama tabel adalah...",o:["<body>","<tbody>","<tablebody>","<main>"],a:1,e:"tbody = table body group."},
+  {q:"Tag untuk mengelompokkan bagian bawah/ringkasan tabel adalah...",o:["<tfoot>","<footer>","<bottom>","<tablefoot>"],a:0,e:"tfoot = table footer group."},
+  {q:"Tag untuk menerima input dari pengguna secara umum adalah...",o:["<form>","<input>","<receive>","<user>"],a:1,e:"<input> adalah elemen kontrol form untuk menerima nilai pengguna; <form> adalah wadah yang mengelompokkan kontrol dan dapat mengatur proses submit."},
+  {q:"Atribut yang menentukan jenis input adalah...",o:["mode","kind","type","input"],a:2,e:"type menentukan tipe kontrol input."},
+  {q:"Atribut yang membuat field wajib diisi adalah...",o:["must","required","needed","validate"],a:1,e:"required adalah boolean attribute untuk input wajib."},
+  {q:"Tag semantic untuk konten utama halaman adalah...",o:["<content>","<main>","<center>","<primary>"],a:1,e:"main menandai konten utama."},
+  {q:"Tag semantic untuk navigasi adalah...",o:["<links>","<navigation>","<nav>","<menu>"],a:2,e:"nav menandai area navigasi."},
+  {q:"Manakah yang paling tepat untuk membedakan id dan class?",o:["id dapat dipakai berkali-kali, class harus unik","id biasanya unik, class bisa dipakai banyak elemen","id hanya untuk CSS, class hanya untuk HTML","Tidak ada perbedaan"],a:1,e:"id biasanya unik pada dokumen, sedangkan class dapat digunakan oleh banyak elemen."}
+];
+
+const tagCards=[...document.querySelectorAll("#tagGrid .tag-card")];
+let currentFilter="all";
+
+function renderQuiz(){
+  const box=document.getElementById("quizBox");
+  box.innerHTML="";
+  questions.forEach((x,i)=>{
+    const card=document.createElement("div");
+    card.className="quiz-card";
+    card.innerHTML=`
+      <div class="q-head">
+        <div class="q-number">${i+1}</div>
+        <div style="flex:1"><b>${esc(x.q)}</b></div>
+      </div>
+      <div style="margin-top:8px">
+        ${x.o.map((v,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${esc(v)}</label>`).join("")}
+      </div>
+      <div class="answer" id="ans${i}"></div>
+    `;
+    box.appendChild(card);
+  });
+  document.querySelectorAll('#quizBox input[type="radio"]').forEach(inp=>{
+    inp.addEventListener("change",updateQuizProgress);
+  });
+  updateQuizProgress();
+}
+function esc(s){
+  return s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+}
+function checkQuiz(){
+  let score=0,answered=0;
+  questions.forEach((x,i)=>{
+    const chosen=document.querySelector(`input[name="q${i}"]:checked`);
+    const ans=document.getElementById("ans"+i);
+    if(chosen){
+      answered++;
+      if(Number(chosen.value)===x.a){
+        score++;
+        ans.textContent="✓ Benar! "+x.e;
+        ans.style.color="#137333";
+      }else{
+        ans.textContent="✗ Belum tepat. "+x.e;
+        ans.style.color="#c5221f";
+      }
+    }else{
+      ans.textContent="• Belum dijawab.";
+      ans.style.color="#5f6368";
+    }
+  });
+  const scoreBox=document.getElementById("score");
+  scoreBox.style.display="block";
+  const percent=Math.round(score/questions.length*100);
+  let msg=score>=23?"🔥 Mantap banget! Kamu sudah sangat siap.":score>=19?"💪 Bagus! Tinggal review beberapa bagian.":score>=14?"📚 Pondasinya sudah ada. Coba ulangi yang salah.":"🌱 Belum apa-apa. Baca ulang materi lalu try again.";
+  scoreBox.innerHTML=`Skor ${score}/${questions.length} (${percent}%) • ${msg}`;
+  updateQuizProgress();
+}
+function resetQuiz(){
+  document.querySelectorAll('#quizBox input[type="radio"]').forEach(i=>i.checked=false);
+  document.querySelectorAll('.answer').forEach(a=>{a.textContent="";a.style.color=""});
+  const s=document.getElementById("score");s.style.display="none";s.textContent="";
+  updateQuizProgress();
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
+}
+function updateQuizProgress(){
+  const answered=new Set();
+  questions.forEach((_,i)=>{if(document.querySelector(`input[name="q${i}"]:checked`))answered.add(i)});
+  const pct=answered.size/questions.length*100;
+  document.getElementById("quizProgress").style.width=pct+"%";
+  document.getElementById("quizProgressText").textContent=`${answered.size}/${questions.length} terjawab`;
+}
+function copyCode(btn){
+  const pre=btn.closest(".codebox").querySelector("pre");
+  navigator.clipboard?.writeText(pre.innerText);
+  const old=btn.textContent;btn.textContent="Copied!";
+  setTimeout(()=>btn.textContent=old,900);
+}
+
+
+const PLAYGROUND_DEFAULT=`<h1>Halo, HTML!</h1>
+<p>Ini paragraf pertamaku.</p>
+<p><strong>Tip:</strong> Coba ubah HTML ini, lalu jalankan lagi.</p>
+<button type="button" onclick="alert('Tombol HTML bekerja!')">Klik aku</button>`;
+
+function previewDoc(html, previewId=""){
+  // Preview terisolasi: browser memakai default rendering HTML, bukan CSS kartu belajar.
+  const cleanId=String(previewId).replace(/[^a-zA-Z0-9_-]/g,"");
+  const safe=String(html).replace(/<\/script/gi,"<\\/script");
+  return `<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html,body{margin:0;padding:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5}
+body{padding:8px;overflow-wrap:anywhere}
+img,video,iframe{max-width:100%}
+table{max-width:100%}
+input,select,textarea,button{font:inherit;max-width:100%}
+</style>
+</head>
+<body>${safe}
+<script>
+(()=>{
+  const id=${JSON.stringify(cleanId)};
+  const report=()=>{
+    const h=Math.min(Math.max(document.documentElement.scrollHeight,56),300);
+    parent.postMessage({type:'html-preview-height',id,height:h},'*');
+  };
+  addEventListener('load',()=>{report();setTimeout(report,40);setTimeout(report,180)});
+  if(window.ResizeObserver) new ResizeObserver(report).observe(document.body);
+})();
+<\/script>
+</body></html>`;
+}
+
+let previewCounter=0;
+function enhanceTagPreviews(){
+  document.querySelectorAll('#tagGrid .tag-card').forEach(card=>{
+    const preview=card.querySelector('.preview');
+    if(!preview || preview.dataset.enhanced==='1') return;
+    const raw=preview.innerHTML.trim();
+    preview.dataset.originalHtml=raw;
+    preview.dataset.enhanced='1';
+    const frame=document.createElement('iframe');
+    frame.className='preview-frame';
+    frame.loading='lazy';
+    frame.title=`Preview ${card.querySelector('.tag-name')?.textContent?.trim() || 'HTML'}`;
+    frame.setAttribute('sandbox','allow-scripts allow-forms');
+    const pid=`p${++previewCounter}`;
+    frame.dataset.previewId=pid;
+    preview.innerHTML='';
+    preview.appendChild(frame);
+    frame.srcdoc=previewDoc(raw,pid);
+    card.classList.add('preview-enhanced');
+  });
+}
+
+window.addEventListener('message',e=>{
+  const data=e.data;
+  if(!data || data.type!=='html-preview-height') return;
+  const frame=[...document.querySelectorAll('.preview-frame')].find(f=>f.dataset.previewId===data.id);
+  if(frame && e.source===frame.contentWindow){
+    frame.style.height=Math.max(56,Math.min(Number(data.height)||72,300))+"px";
+  }
+});
+
+const DEEP_EXPLANATIONS={
+  "<h1> – <h6>":"Heading membentuk hierarki judul. h1 adalah level tertinggi, lalu turun ke h2 sampai h6. Gunakan level berdasarkan struktur/topik, bukan sekadar karena ukuran teksnya lebih besar atau kecil.",
+  "<p>":"Paragraf dipakai untuk blok teks yang berdiri sebagai paragraf. Browser biasanya memberi jarak vertikal antara paragraf secara default. Kalau hanya ingin pindah baris di dalam satu paragraf, gunakan br.",
+  "<br>":"br membuat line break di tempat tertentu. Ini berbeda dari p karena br tidak membuat paragraf baru. Gunakan seperlunya, bukan untuk membuat layout halaman.",
+  "<hr>":"hr menandai thematic break/pergantian topik. Garis yang terlihat hanyalah tampilan default browser; maknanya lebih penting daripada bentuk garisnya.",
+  "<strong>":"strong memberi makna bahwa teks memiliki importance/urgency yang lebih kuat. Tebal yang terlihat adalah presentasi default browser, tetapi fokus HTML-nya adalah makna.",
+  "<em>":"em memberi penekanan pada kata/kalimat. Tampilan miring adalah default browser, bukan inti makna elemennya.",
+  "<mark>":"mark menandai teks yang relevan dalam konteks tertentu, seperti hasil pencarian atau bagian yang perlu disorot.",
+  "<small>":"small cocok untuk catatan sampingan, legal text, atau teks yang memang secara semantik lebih kecil/keterangan tambahan; jangan gunakan hanya untuk mengecilkan font sebagai tujuan visual.",
+  "<del> / <ins>":"del merepresentasikan penghapusan dan ins merepresentasikan penambahan. Ini berguna untuk menunjukkan perubahan konten dengan makna semantik.",
+  "<sub> / <sup>":"sub dan sup mengubah posisi karakter sebagai subscript/superscript. Contoh umum: H2O dan x2. Jangan gunakan hanya untuk efek visual jika maknanya tidak sesuai.",
+  "<a>":"a membuat hyperlink. href menentukan tujuan. Bedakan href dari target: href menentukan ke mana, sedangkan target menentukan konteks tempat link dibuka.",
+  "<img>":"img menampilkan resource gambar. src menunjuk sumber dan alt menjadi teks alternatif ketika gambar tidak tersedia serta membantu aksesibilitas. img adalah void element.",
+  "<ul>":"ul membuat daftar tak berurutan. Isinya biasanya li. Kalau urutan langkah penting, gunakan ol.",
+  "<ol>":"ol membuat daftar berurutan. Browser biasanya menomori item, dan li menjadi anak di dalamnya.",
+  "<li>":"li adalah satu item list. Secara normal li digunakan sebagai anak dari ul, ol, atau struktur list yang sesuai.",
+  "<table>":"table adalah wadah data tabular. Tabel dipakai ketika hubungan baris dan kolom memang bermakna, bukan untuk mengatur layout halaman.",
+  "<tr>":"tr berarti table row, yaitu satu baris tabel. tr berada di dalam konteks table dan biasanya berisi th atau td.",
+  "<th>":"th adalah header cell. Gunakan untuk sel yang memberi nama/konteks pada data, lalu gunakan scope bila membantu menjelaskan apakah header berlaku untuk kolom atau baris.",
+  "<td>":"td adalah data cell biasa. td berisi nilai/data pada perpotongan baris dan kolom.",
+  "<thead>":"thead adalah grup kepala tabel. Ia tetap harus berada di dalam table dan biasanya berisi tr yang berisi th. Bayangkan: table → thead → tr → th.",
+  "<tbody>":"tbody adalah grup isi utama tabel. Ia juga berada di dalam table dan biasanya berisi banyak tr. Bayangkan: table → tbody → tr → td/th.",
+  "<tfoot>":"tfoot adalah grup bagian bawah tabel, sering berisi ringkasan seperti total atau rata-rata. Ia tetap merupakan bagian dari table.",
+  "<caption>":"caption memberi judul/keterangan pada table. Caption ditempatkan langsung di dalam table dan membantu pembaca memahami konteks data.",
+  "<form>":"form mengelompokkan kontrol yang datanya ingin diproses/dikirim. Kontrol seperti input, select, textarea, dan button dapat menjadi bagian dari form. form bukan kontrol input itu sendiri.",
+  "<input>":"input adalah kontrol form yang bentuk/perilakunya bergantung pada type. Contohnya text, email, number, checkbox, radio, date, dan file. input adalah void element.",
+  "<label>":"label memberi nama/keterangan untuk kontrol form. Menghubungkan label for dengan id kontrol membuat hubungan semantiknya jelas dan lebih mudah dipakai.",
+  "<button>":"button membuat tombol interaktif. Di dalam form, type sangat penting: submit mengirim form, reset mengosongkan/mengembalikan form, dan button adalah tombol biasa yang biasanya menunggu JavaScript.",
+  "<textarea>":"textarea dipakai untuk input teks multi-baris. Berbeda dari input, textarea punya konten anak sebagai nilai default dan secara alami mendukung beberapa baris.",
+  "<select> + <option>":"select membuat kontrol pilihan, sedangkan option adalah pilihan di dalamnya. selected dapat menentukan pilihan awal pada option tertentu.",
+  "<header>":"header adalah area pengantar untuk halaman atau section/article tertentu. Ia tidak selalu berarti header global seluruh website.",
+  "<nav>":"nav menandai kumpulan link navigasi penting. Tidak semua kumpulan link harus dibungkus nav; pilih area navigasi yang memang bermakna.",
+  "<main>":"main menandai konten utama dokumen. Umumnya ada satu main yang merepresentasikan fokus utama halaman.",
+  "<section>":"section mengelompokkan tema/topik yang memiliki hubungan. Biasanya section mempunyai heading agar struktur isinya jelas.",
+  "<article>":"article cocok untuk konten yang relatif mandiri, seperti posting, berita, atau entri yang masih masuk akal ketika dipisahkan dari halaman.",
+  "<aside>":"aside berisi konten yang berkaitan tetapi bukan bagian utama, misalnya related links, catatan samping, atau informasi tambahan.",
+  "<footer>":"footer menandai bagian penutup untuk halaman atau section/article tertentu. Isinya dapat berupa copyright, link tambahan, atau informasi penutup.",
+  "<details> + <summary>":"details membuat disclosure widget yang bisa dibuka/tutup. summary adalah label yang diklik. Ini adalah contoh interaksi HTML yang bisa bekerja tanpa JavaScript tambahan.",
+  "<code> + <pre>":"code menandai potongan kode. pre mempertahankan whitespace dan line break. Kombinasi keduanya cocok untuk blok contoh kode yang ingin mempertahankan format.",
+  "<abbr>":"abbr menandai singkatan. title dapat memberi kepanjangan/informasi tambahan ketika pointer diarahkan atau dibaca oleh tools yang mendukungnya.",
+  "<time>":"time menandai tanggal/waktu secara semantik. datetime memberi bentuk machine-readable yang berguna untuk mesin dan tools.",
+  "<figure> + <figcaption>":"figure mengelompokkan konten ilustratif yang berdiri sendiri, sementara figcaption memberi caption/keterangan yang terkait dengannya."
+};
+function addInteractiveExplanations(){
+  document.querySelectorAll('#tagGrid .tag-card').forEach(card=>{
+    if(card.querySelector('.deep-explain')) return;
+    const tag=card.querySelector('.tag-name')?.textContent?.trim();
+    const text=DEEP_EXPLANATIONS[tag] || "Coba lihat struktur HTML-nya, lalu cocokkan kode dengan hasil render di preview. Perhatikan bagian mana yang menentukan struktur/makna dan bagian mana yang hanya mengatur tampilan.";
+    const details=document.createElement('details');
+    details.className='deep-explain';
+    details.innerHTML=`<summary>💡 Pahami lebih dalam</summary><div class="deep-explain-content">${text}</div>`;
+    card.appendChild(details);
+  });
+}
+
+const EXAMPLES={
+  table:`<table border="1">
+  <caption>Nilai siswa</caption>
+  <thead>
+    <tr>
+      <th scope="col">Nama</th>
+      <th scope="col">Nilai</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alya</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>Bima</td>
+      <td>88</td>
+    </tr>
+  </tbody>
+</table>`,
+  form:`<form onsubmit="event.preventDefault(); alert('Form dibaca!')">
+  <label for="nama">Nama:</label>
+  <input id="nama" name="nama" required>
+
+  <label for="pesan">Pesan:</label>
+  <textarea id="pesan" name="pesan"></textarea>
+
+  <button type="submit">Kirim</button>
+</form>`,
+  semantic:`<header>
+  <h1>Blog Belajar</h1>
+</header>
+<nav>
+  <a href="#artikel">Artikel</a>
+</nav>
+<main id="artikel">
+  <article>
+    <h2>HTML itu penting</h2>
+    <p>Ini konten artikel.</p>
+  </article>
+</main>
+<footer>© 2026</footer>`
+};
+function runPlayground(){
+  const code=document.getElementById('playgroundCode').value;
+  document.getElementById('playgroundOutput').srcdoc=previewDoc(code,'playground');
+  document.getElementById('playgroundSource').textContent=code.trim() || '(kosong)';
+}
+function resetPlayground(){
+  document.getElementById('playgroundCode').value=PLAYGROUND_DEFAULT;
+  runPlayground();
+}
+function loadExample(name){
+  document.getElementById('playgroundCode').value=EXAMPLES[name] || PLAYGROUND_DEFAULT;
+  runPlayground();
+}
+function copyPlayground(){
+  const code=document.getElementById('playgroundCode').value;
+  navigator.clipboard?.writeText(code);
+}
+
+const tagSearch=document.getElementById("tagSearch");
+document.getElementById("tagSearch");
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter=btn.dataset.filter;
+    filterTags();
+  });
+});
+tagSearch.addEventListener("input",filterTags);
+function filterTags(){
+  const q=tagSearch.value.toLowerCase().trim();
+  let shown=0;
+  tagCards.forEach(card=>{
+    const matchesSearch=!q || card.dataset.key.includes(q);
+    const matchesFilter=currentFilter==="all" || card.dataset.cat===currentFilter;
+    const visible=matchesSearch&&matchesFilter;
+    card.style.display=visible?"flex":"none";
+    if(visible)shown++;
+  });
+  document.getElementById("tagEmpty").style.display=shown?"none":"block";
+}
+
+function openNameModal(){
+  document.getElementById("nameModal").classList.add("show");
+  document.body.classList.add("modal-open");
+  setTimeout(()=>document.getElementById("nameInput").focus(),80);
+}
+function closeNameModal(){
+  document.getElementById("nameModal").classList.remove("show");
+  document.body.classList.remove("modal-open");
+}
+function setName(name){
+  const clean=name.trim().replace(/\s+/g," ").slice(0,30);
+  const finalName=clean||"Teman Belajar";
+  localStorage.setItem("htmlStudyName",finalName);
+  document.getElementById("helloName").textContent=finalName;
+  document.getElementById("motivationName").textContent=finalName;
+  closeNameModal();
+}
+document.getElementById("saveName").addEventListener("click",()=>setName(document.getElementById("nameInput").value));
+document.getElementById("skipName").addEventListener("click",()=>setName(""));
+document.getElementById("nameInput").addEventListener("keydown",e=>{if(e.key==="Enter")setName(document.getElementById("nameInput").value)});
+document.getElementById("nameModal").addEventListener("click",e=>{if(e.target.id==="nameModal")setName("")});
+
+// Selalu tampilkan modal nama saat halaman dibuka
+setTimeout(openNameModal, 250);
+
+document.getElementById("skipName").remove();
+
+document.getElementById("saveName").addEventListener("click",()=>{
+  const name = document.getElementById("nameInput").value.trim();
+
+  if(!name){
+    document.getElementById("nameInput").focus();
+    return;
+  }
+
+  setName(name);
+});
+
+window.addEventListener("scroll",()=>{
+  document.getElementById("topBtn").style.display=scrollY>520?"block":"none";
+});
+
+renderQuiz();
+filterTags();
+enhanceTagPreviews();
+addInteractiveExplanations();
+resetPlayground();
+</script>
+</body>
+</html>
